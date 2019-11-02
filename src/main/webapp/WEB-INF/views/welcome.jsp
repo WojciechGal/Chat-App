@@ -12,5 +12,9 @@
 </head>
 <body>
 <h1 style="text-align: center">WELCOME PEJDŻ</h1>
+<form method="post" action="/">
+    <input type="text" placeholder="nick" name="nick"/>
+    <button type="submit">Wyślij</button>
+</form>
 </body>
 </html>

@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Wojciech
@@ -11,6 +12,9 @@
     <title>Title</title>
 </head>
 <body>
-
+<c:forEach items="${chat}" var="text">
+    <p>${text}</p>
+</c:forEach>
+<form method="post"><input type="text" placeholder="wiadomość"><button type="submit">Wyślij</button></form>
 </body>
 </html>

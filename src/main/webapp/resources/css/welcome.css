@@ -1,0 +1,15 @@
+h1 {
+    text-align: center !important;
+}
+
+form {
+    justify-content: center !important;
+}
+
+body {
+    background: url(../edoras1.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}

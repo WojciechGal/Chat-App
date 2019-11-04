@@ -19,14 +19,13 @@ public class ChatController {
     @RequestMapping(value = "/chat", method = RequestMethod.GET)
     public String chat(HttpServletRequest request) {
         request.setAttribute("chat", service.readMessages());
-        request.setAttribute("message", null);
         return "chat";
     }
 
     @RequestMapping(value = "/chat", method = RequestMethod.POST)
     public String chat(HttpSession sess, HttpServletRequest request) {
         String name = (String) sess.getAttribute("nick");
-        String message = (String) request.getAttribute("message");
+        String message = request.getParameter("message");
         service.addMessage(name + ": " + message);
         return "redirect:/chat";
     }

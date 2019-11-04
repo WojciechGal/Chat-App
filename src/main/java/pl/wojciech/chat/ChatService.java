@@ -18,7 +18,11 @@ public class ChatService {
     }
 
     public List<String> readMessages() {
-        return repository.readMessages();
+        List<String> messages = repository.readMessages();
+        if (messages.size() > 15) {
+            messages.remove(0);
+        }
+        return messages;
     }
 
 

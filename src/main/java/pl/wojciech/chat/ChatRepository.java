@@ -1,6 +1,7 @@
 package pl.wojciech.chat;
 
 import org.springframework.stereotype.Repository;
+import pl.wojciech.message.Message;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,13 +9,9 @@ import java.util.List;
 @Repository
 public class ChatRepository {
 
-    List<String> messages = new ArrayList<>();
+    private final List<Message> chat = new ArrayList<>();
 
-    public void addMessage(String message) {
-        messages.add(message);
-    }
-
-    public List<String> readMessages() {
-        return this.messages;
+    public List<Message> readChat() {
+        return this.chat;
     }
 }

@@ -4,7 +4,9 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.WebApplicationContext;
+import pl.wojciech.message.Message;
 
+import java.time.LocalTime;
 import java.util.List;
 
 @Service
@@ -18,16 +20,18 @@ public class ChatService {
         this.repository = repository;
     }
 
-    public void addMessage(String message) {
-        repository.addMessage(message);
+    public void addMessage(String nick, String message) {
+        LocalTime time = LocalTime.now();
+        Message totalMessage = new Message(nick, message, ((Integer)time.getHour()).toString() + ":" + ((Integer)time.getMinute()).toString());
+        repository.readChat().add(totalMessage);
     }
 
-    public List<String> readMessages() {
-        List<String> messages = repository.readMessages();
-        if (messages.size() > 15) {
-            messages.remove(0);
+    public List<Message> readMessages() {
+        List<Message> chat = repository.readChat();
+        if (chat.size() > 15) {
+            chat.remove(0);
         }
-        return messages;
+        return chat;
     }
 
 

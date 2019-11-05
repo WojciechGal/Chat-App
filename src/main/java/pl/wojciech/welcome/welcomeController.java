@@ -19,6 +19,6 @@ public class welcomeController {
     public String welcomePage(HttpServletRequest request, HttpSession sess){
         String name = request.getParameter("nick");
         sess.setAttribute("nick", name);
-        return "redirect:/chat";
+        return "chatVer2";
     }
 }

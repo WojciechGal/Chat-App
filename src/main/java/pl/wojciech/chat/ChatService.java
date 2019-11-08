@@ -7,12 +7,16 @@ import org.springframework.web.context.WebApplicationContext;
 import pl.wojciech.message.Message;
 
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 @Service
 @Scope(value = WebApplicationContext.SCOPE_SESSION,
         proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class ChatService {
+
+    private int counter = 0;
 
     private ChatRepository repository;
 
@@ -28,7 +32,26 @@ public class ChatService {
 
     public List<Message> readMessages() {
         List<Message> chat = repository.readChat();
-        return chat;
+
+        List<Message> tempChat = new ArrayList<>();
+
+        Iterator<Message> it = chat.iterator();
+
+        int innerCounter = 0;
+
+        while (it.hasNext()) {
+            innerCounter++;
+
+            Message mess = it.next();
+            if (innerCounter > counter) {
+                tempChat.add(mess);
+            }
+
+        }
+
+        counter = innerCounter;
+
+        return tempChat;
     }
 
 

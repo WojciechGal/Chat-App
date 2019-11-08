@@ -10,7 +10,7 @@ $(function () {
 
     setInterval(function() {
         checkChat(section)
-    }, 1000)
+    }, 500)
 
 })
 
@@ -51,6 +51,7 @@ function addMessage(input) {
 }
 
 function checkChat(section) {
+    console.log('trying to check messages...')
 
     $.ajax(
         {
@@ -63,6 +64,15 @@ function checkChat(section) {
         response.forEach(function(item){
 
             section.append(`<p>${item.author}: ${item.message} (${item.time})</p>`)
+
+            if (section.children().length > 15) {
+
+                let toRemove = section.children().length - 15
+
+                for (let i = 0; i < toRemove; i++) {
+                    section.children().eq(i).remove()
+                }
+            }
 
         })
 

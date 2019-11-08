@@ -3,35 +3,43 @@ $(function () {
     let input = $('#inpt')
     let button = $('#btn')
 
-    getChat(section)
+    let primaryCounter = 0
 
     button.on('click', function (e) {
         e.preventDefault()
         addMessage(input, section)
     })
 
-    setInterval(()=>getChat(section), 1000)
+
+
+    setInterval(function() {
+        checkChat(section)
+    }, 1000)
+
+
+
 
 })
 
-function getChat(section) {
-    section.empty()
+// function getChat(section) {
+//     section.empty();
+//
+//     $.ajax(
+//         {
+//             url: "http://localhost:8080/chat",
+//             type: "GET",
+//             dataType: "json"
+//         }
+//     ).done(function (response) {
+//         console.log('getting messages...')
+//
+//         response.forEach(function (item) {
+//             section.append(`<p>${item.author}: ${item.message} (${item.time})</p>`)
+//         })
+//     });
+// }
 
-    $.ajax(
-        {
-            url: "http://localhost:8080/chat",
-            type: "GET",
-            dataType: "json"
-        }
-    ).done(function (response) {
-        console.log('getting messages...')
-        response.forEach(function (item) {
-            section.append(`<p>${item.author}: ${item.message} (${item.time})</p>`)
-        })
-    })
-}
-
-function addMessage(input, section) {
+function addMessage(input) {
     console.log('trying to send message...')
     let message = input.val()
 
@@ -44,7 +52,29 @@ function addMessage(input, section) {
         }
     ).done(function (response) {
         console.log('sending message...')
-        getChat(section)
+        //getChat(section)
         input.val('')
     })
 }
+
+function checkChat(section) {
+
+    $.ajax(
+        {
+            url: "http://localhost:8080/chat",
+            type: "GET",
+            dataType: "json"
+        }
+    ).done(function (response) {
+        console.log('checking messages...')
+        response.forEach(function(item){
+
+            section.append(`<p>${item.author}: ${item.message} (${item.time})</p>`)
+
+        })
+
+    })
+
+}
+
+

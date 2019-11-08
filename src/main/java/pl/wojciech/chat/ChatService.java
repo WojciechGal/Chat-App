@@ -35,14 +35,14 @@ public class ChatService {
 
         List<Message> tempChat = new ArrayList<>();
 
-        Iterator<Message> it = chat.iterator();
+        Iterator<Message> mainIt = chat.iterator();
 
         int innerCounter = 0;
 
-        while (it.hasNext()) {
+        while (mainIt.hasNext()) {
             innerCounter++;
 
-            Message mess = it.next();
+            Message mess = mainIt.next();
             if (innerCounter > counter) {
                 tempChat.add(mess);
             }

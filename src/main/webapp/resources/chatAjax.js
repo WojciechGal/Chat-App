@@ -3,21 +3,14 @@ $(function () {
     let input = $('#inpt')
     let button = $('#btn')
 
-    let primaryCounter = 0
-
     button.on('click', function (e) {
         e.preventDefault()
         addMessage(input, section)
     })
 
-
-
     setInterval(function() {
         checkChat(section)
     }, 1000)
-
-
-
 
 })
 
@@ -76,5 +69,4 @@ function checkChat(section) {
     })
 
 }
-
 

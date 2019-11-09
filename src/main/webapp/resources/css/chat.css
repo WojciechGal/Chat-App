@@ -25,3 +25,9 @@ body {
 p {
     color: ivory !important;
 }
+
+h2 {
+    text-align: center !important;
+    display: none;
+    color: red !important;
+}

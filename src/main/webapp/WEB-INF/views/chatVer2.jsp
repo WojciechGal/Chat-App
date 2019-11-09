@@ -17,7 +17,7 @@
 <body>
 <h1>Czat Lęborska</h1>
 <br>
-<section id="sec">
+<section id="sec" data-server="${server}">
     <!-- chat - messages -->
 </section>
 <form class="form-inline" method="post">

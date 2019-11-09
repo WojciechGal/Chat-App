@@ -2,6 +2,7 @@ $(function () {
     let section = $('#sec')
     let input = $('#inpt')
     let button = $('#btn')
+    let header = $('#hdr')
 
     let serverURL
 
@@ -9,6 +10,9 @@ $(function () {
 
     if (nrOfIP == true) {
         serverURL = 'http://localhost:8080/chat'
+    } else if (nrOfIP == false){
+        serverURL = "unknown"
+        header.css('display', 'block')
     } else {
         serverURL = `http://192.168.1.${nrOfIP}:8080/chat`
     }

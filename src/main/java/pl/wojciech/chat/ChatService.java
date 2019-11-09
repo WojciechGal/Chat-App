@@ -26,7 +26,13 @@ public class ChatService {
 
     public void addMessage(String nick, String message) {
         LocalTime time = LocalTime.now();
-        Message totalMessage = new Message(nick, message, ((Integer)time.getHour()).toString() + ":" + ((Integer)time.getMinute()).toString());
+        String stringTime = ((Integer)time.getHour()).toString() + ":";
+        if (time.getMinute() < 10) {
+            stringTime += "0" + ((Integer)time.getMinute()).toString();
+        } else {
+            stringTime += ((Integer)time.getMinute()).toString();
+        }
+        Message totalMessage = new Message(nick, message, stringTime);
         repository.readChat().add(totalMessage);
     }
 

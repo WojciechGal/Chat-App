@@ -16,6 +16,7 @@
 </head>
 <body>
 <h1>Czat Lęborska</h1>
+<h2 id="hdr">Nie wybrano połączenia!</h2>
 <br>
 <section id="sec" data-server="${server}">
     <!-- chat - messages -->

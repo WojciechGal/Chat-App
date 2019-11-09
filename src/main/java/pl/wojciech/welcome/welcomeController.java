@@ -19,6 +19,9 @@ public class welcomeController {
     public String welcomePage(HttpServletRequest request, HttpSession sess){
         String name = request.getParameter("nick");
         sess.setAttribute("nick", name);
+        String server = request.getParameter("server");
+        sess.setAttribute("server", server);
+
         return "chatVer2";
     }
 }

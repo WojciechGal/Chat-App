@@ -19,6 +19,19 @@
 <form class="form-inline" method="post">
     <label class="sr-only" for="inlineFormInputName2">Name</label>
     <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Podaj swój nick" name="nick">
+    <label for="exampleFormControlSelect1">Zaznacz połączenie</label>
+    <select class="form-control" id="exampleFormControlSelect1" name="server">
+        <option value="true">Serwer</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+    </select>
     <button type="submit" class="btn btn-primary mb-2">Zatwierdź</button>
 </form>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

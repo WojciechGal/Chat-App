@@ -3,13 +3,23 @@ $(function () {
     let input = $('#inpt')
     let button = $('#btn')
 
+    let serverURL
+
+    let nrOfIP = section.data('server')
+
+    if (nrOfIP == true) {
+        serverURL = 'http://localhost:8080/chat'
+    } else {
+        serverURL = `http://192.168.1.${nrOfIP}:8080/chat`
+    }
+
     button.on('click', function (e) {
         e.preventDefault()
-        addMessage(input, section)
+        addMessage(input, serverURL)
     })
 
     setInterval(function() {
-        checkChat(section)
+        checkChat(section, serverURL)
     }, 500)
 
 })
@@ -32,13 +42,13 @@ $(function () {
 //     });
 // }
 
-function addMessage(input) {
+function addMessage(input, serverURL) {
     console.log('trying to send message...')
     let message = input.val()
 
     $.ajax(
         {
-            url: `http://localhost:8080/chat`,
+            url: `${serverURL}`,
             data: `${message}`,
             contentType: "application/json",
             type: "POST"
@@ -50,17 +60,17 @@ function addMessage(input) {
     })
 }
 
-function checkChat(section) {
-    console.log('trying to check messages...')
+function checkChat(section, serverURL) {
+    //console.log('trying to check messages...')
 
     $.ajax(
         {
-            url: "http://localhost:8080/chat",
+            url: `${serverURL}`,
             type: "GET",
             dataType: "json"
         }
     ).done(function (response) {
-        console.log('checking messages...')
+        //console.log('checking messages...')
         response.forEach(function(item){
 
             section.append(`<p>${item.author}: ${item.message} (${item.time})</p>`)

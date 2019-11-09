@@ -3,6 +3,7 @@ package pl.wojciech.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -36,6 +37,7 @@ public class AppConfig implements WebMvcConfigurer {
     }
 
     @Bean
+    @Scope("session")
     public ChatService service() {
         return new ChatService(repository());
     }

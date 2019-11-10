@@ -33,7 +33,7 @@ public class ChatService {
             stringTime += ((Integer)time.getMinute()).toString();
         }
         Message totalMessage = new Message(nick, message, stringTime);
-        repository.readChat().add(totalMessage);
+        repository.addMessage(totalMessage);
     }
 
     public List<Message> readMessages() {

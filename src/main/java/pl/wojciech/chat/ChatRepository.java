@@ -14,4 +14,8 @@ public class ChatRepository {
     public List<Message> readChat() {
         return this.chat;
     }
+
+    public void addMessage(Message mess) {
+        chat.add(mess);
+    }
 }

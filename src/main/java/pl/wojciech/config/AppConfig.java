@@ -42,4 +42,6 @@ public class AppConfig implements WebMvcConfigurer {
         return new ChatService(repository());
     }
 
+    //kontroler nie jest beanem zarządzanym przez spring - nie jest nigdzie wstrzykiwany
+
 }

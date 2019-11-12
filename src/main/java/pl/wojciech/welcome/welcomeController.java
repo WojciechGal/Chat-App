@@ -22,6 +22,6 @@ public class welcomeController {
         String server = request.getParameter("server");
         sess.setAttribute("server", server);
 
-        return "chatVer2";
+        return "chat";
     }
 }

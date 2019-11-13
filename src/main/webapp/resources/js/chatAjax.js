@@ -5,16 +5,20 @@ $(function () {
     let header = $('#hdr')
 
     let serverURL
+    let closeURL
 
     let nrOfIP = section.data('server')
 
     if (nrOfIP == true) {
         serverURL = 'http://localhost:8080/chat'
-    } else if (nrOfIP == false){
-        serverURL = "unknown"
+        closeURL = 'http://localhost:8080/close'
+    } else if (nrOfIP == 'unknown'){
+        serverURL = 'unknown'
+        closeURL = 'unknown'
         header.css('display', 'block')
     } else {
         serverURL = `http://192.168.1.${nrOfIP}:8080/chat`
+        closeURL = `http://192.168.1.${nrOfIP}:8080/close`
     }
 
     button.on('click', function (e) {
@@ -27,7 +31,7 @@ $(function () {
     }, 500)
 
     $(window).bind('beforeunload', function(){
-        closeSession()
+        closeSession(closeURL)
     });
 
 })
@@ -98,11 +102,11 @@ function checkChat(section, serverURL) {
 
 }
 
-function closeSession() {
+function closeSession(closeURL) {
 
     $.ajax(
         {
-            url: "http://localhost:8080/close",
+            url: `${closeURL}`,
             type: "GET",
             dataType: "json"
         }

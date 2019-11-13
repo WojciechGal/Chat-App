@@ -21,7 +21,7 @@
     <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Podaj swój nick" name="nick">
     <label class="sr-only" for="exampleFormControlSelect1">Connection</label>
     <select class="form-control mb-2 mr-sm-2" id="exampleFormControlSelect1" name="server">
-        <option value="false">Wybierz połączenie...</option>
+        <option value="unknown">Wybierz połączenie...</option>
         <option value="true">Serwer</option>
         <option value="1">1</option>
         <option value="2">2</option>

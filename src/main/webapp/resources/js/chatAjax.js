@@ -26,6 +26,10 @@ $(function () {
         checkChat(section, serverURL)
     }, 500)
 
+    $(window).bind('beforeunload', function(){
+        closeSession()
+    });
+
 })
 
 // function getChat(section) {
@@ -92,5 +96,18 @@ function checkChat(section, serverURL) {
 
     })
 
+}
+
+function closeSession() {
+
+    $.ajax(
+        {
+            url: "http://localhost:8080/close",
+            type: "GET",
+            dataType: "json"
+        }
+    ).done(function () {
+        console.log('closing session...')
+    });
 }
 

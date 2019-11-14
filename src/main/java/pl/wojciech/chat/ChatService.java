@@ -24,6 +24,12 @@ public class ChatService {
         this.repository = repository;
     }
 
+    public List<Message> chatInitialization() {
+        List<Message> firstList = repository.readChat();
+        counter = firstList.size();
+        return firstList;
+    }
+
     public void addMessage(String nick, String message) {
         LocalTime time = LocalTime.now();
         String stringTime = ((Integer)time.getHour()).toString() + ":";

@@ -36,9 +36,9 @@ $(function () {
         checkChat(section, serverURL)
     }, 500)
 
-    $(window).bind('beforeunload', function(){
-        closeSession(closeURL)
-    });
+    // $(window).bind('beforeunload', function(){
+    //     closeSession(closeURL)
+    // });
 
 })
 
@@ -51,7 +51,7 @@ function getChat(section, initURL) {
             dataType: "json"
         }
     ).done(function (response) {
-
+        console.log('initializing chat...')
         response.forEach(function (item) {
             section.append(`<p>${item.author}: ${item.message} (${item.time})</p>`)
 

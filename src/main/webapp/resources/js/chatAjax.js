@@ -30,7 +30,7 @@ $(function () {
         addMessage(input, serverURL)
     })
 
-    getChat(section, initURL)
+    //getChat(section, initURL)
 
     setInterval(function() {
         checkChat(section, serverURL)
@@ -42,31 +42,31 @@ $(function () {
 
 })
 
-function getChat(section, initURL) {
-
-    $.ajax(
-        {
-            url: `${initURL}`,
-            type: "GET",
-            dataType: "json"
-        }
-    ).done(function (response) {
-        console.log('initializing chat...')
-        response.forEach(function (item) {
-            section.append(`<p>${item.author}: ${item.message} (${item.time})</p>`)
-
-            if (section.children().length > 15) {
-
-                let toRemove = section.children().length - 15
-
-                for (let i = 0; i < toRemove; i++) {
-                    section.children().eq(i).remove()
-                }
-            }
-        })
-
-    });
-}
+// function getChat(section, initURL) {
+//
+//     $.ajax(
+//         {
+//             url: `${initURL}`,
+//             type: "GET",
+//             dataType: "json"
+//         }
+//     ).done(function (response) {
+//         console.log('initializing chat...')
+//         response.forEach(function (item) {
+//             section.append(`<p>${item.author}: ${item.message} (${item.time})</p>`)
+//
+//             if (section.children().length > 15) {
+//
+//                 let toRemove = section.children().length - 15
+//
+//                 for (let i = 0; i < toRemove; i++) {
+//                     section.children().eq(i).remove()
+//                 }
+//             }
+//         })
+//
+//     });
+// }
 
 function addMessage(input, serverURL) {
     console.log('trying to send message...')
@@ -99,16 +99,27 @@ function checkChat(section, serverURL) {
         //console.log('checking messages...')
         response.forEach(function(item){
 
-            section.append(`<p>${item.author}: ${item.message} (${item.time})</p>`)
+            let lastIndex = section.children().length - 1
 
-            if (section.children().length > 15) {
+            if (section.children().eq(lastIndex).data('number') === undefined || section.children().eq(lastIndex).data('number') < item.number) {
 
-                let toRemove = section.children().length - 15
+                section.append(`<p data-number="${item.number}">${item.author}: ${item.message} (${item.time})</p>`)
 
-                for (let i = 0; i < toRemove; i++) {
-                    section.children().eq(i).remove()
+                if (section.children().length > 15) {
+                    section.children().eq(0).remove()
                 }
+
             }
+
+
+            // if (section.children().length > 15) {
+            //
+            //     let toRemove = section.children().length - 15
+            //
+            //     for (let i = 0; i < toRemove; i++) {
+            //         section.children().eq(i).remove()
+            //     }
+            // }
 
         })
 
@@ -116,16 +127,16 @@ function checkChat(section, serverURL) {
 
 }
 
-function closeSession(closeURL) {
-
-    $.ajax(
-        {
-            url: `${closeURL}`,
-            type: "GET",
-            dataType: "json"
-        }
-    ).done(function () {
-        console.log('closing session...')
-    });
-}
+// function closeSession(closeURL) {
+//
+//     $.ajax(
+//         {
+//             url: `${closeURL}`,
+//             type: "GET",
+//             dataType: "json"
+//         }
+//     ).done(function () {
+//         console.log('closing session...')
+//     });
+// }
 

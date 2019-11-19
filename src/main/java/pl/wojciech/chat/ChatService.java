@@ -7,8 +7,6 @@ import org.springframework.web.context.WebApplicationContext;
 import pl.wojciech.message.Message;
 
 import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 @Service
@@ -21,11 +19,6 @@ public class ChatService {
     public ChatService(ChatRepository repository) {
         this.repository = repository;
     }
-
-//    public List<Message> chatInitialization() {
-//        List<Message> firstList = repository.readChat();
-//        return firstList;
-//    }
 
     public void addMessage(String nick, String message) {
         LocalTime time = LocalTime.now();
@@ -40,29 +33,7 @@ public class ChatService {
     }
 
     public List<Message> readMessages() {
-//        List<Message> chat = repository.readChat();
-//
-//        List<Message> tempChat = new ArrayList<>();
-//
-//        Iterator<Message> mainIt = chat.iterator();
-//
-//        int innerCounter = 0;
-//
-//        while (mainIt.hasNext()) {
-//            innerCounter++;
-//
-//            Message mess = mainIt.next();
-//            if (innerCounter > counter) {
-//                tempChat.add(mess);
-//            }
-//
-//        }
-//
-//        counter = innerCounter;
-//
-//        return tempChat;
         return repository.readChat();
     }
-
 
 }

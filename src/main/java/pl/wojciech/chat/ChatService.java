@@ -16,19 +16,16 @@ import java.util.List;
         proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class ChatService {
 
-    private int counter = 0;
-
     private ChatRepository repository;
 
     public ChatService(ChatRepository repository) {
         this.repository = repository;
     }
 
-    public List<Message> chatInitialization() {
-        List<Message> firstList = repository.readChat();
-        counter = firstList.size();
-        return firstList;
-    }
+//    public List<Message> chatInitialization() {
+//        List<Message> firstList = repository.readChat();
+//        return firstList;
+//    }
 
     public void addMessage(String nick, String message) {
         LocalTime time = LocalTime.now();
@@ -43,27 +40,28 @@ public class ChatService {
     }
 
     public List<Message> readMessages() {
-        List<Message> chat = repository.readChat();
-
-        List<Message> tempChat = new ArrayList<>();
-
-        Iterator<Message> mainIt = chat.iterator();
-
-        int innerCounter = 0;
-
-        while (mainIt.hasNext()) {
-            innerCounter++;
-
-            Message mess = mainIt.next();
-            if (innerCounter > counter) {
-                tempChat.add(mess);
-            }
-
-        }
-
-        counter = innerCounter;
-
-        return tempChat;
+//        List<Message> chat = repository.readChat();
+//
+//        List<Message> tempChat = new ArrayList<>();
+//
+//        Iterator<Message> mainIt = chat.iterator();
+//
+//        int innerCounter = 0;
+//
+//        while (mainIt.hasNext()) {
+//            innerCounter++;
+//
+//            Message mess = mainIt.next();
+//            if (innerCounter > counter) {
+//                tempChat.add(mess);
+//            }
+//
+//        }
+//
+//        counter = innerCounter;
+//
+//        return tempChat;
+        return repository.readChat();
     }
 
 

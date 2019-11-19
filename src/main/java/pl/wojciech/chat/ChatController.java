@@ -25,10 +25,10 @@ public class ChatController {
         this.service = service;
     }
 
-    @RequestMapping(value = "/initChat", method = RequestMethod.GET, produces = "application/json")
-    public List<Message> initChat() {
-        return service.chatInitialization();
-    }
+//    @RequestMapping(value = "/initChat", method = RequestMethod.GET, produces = "application/json")
+//    public List<Message> initChat() {
+//        return service.chatInitialization();
+//    }
 
     @RequestMapping(value = "/chat", method = RequestMethod.GET, produces = "application/json")
     public List<Message> chat() {

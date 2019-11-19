@@ -30,8 +30,6 @@ $(function () {
         addMessage(input, serverURL)
     })
 
-    //getChat(section, initURL)
-
     setInterval(function() {
         checkChat(section, serverURL)
     }, 500)
@@ -41,32 +39,6 @@ $(function () {
     // });
 
 })
-
-// function getChat(section, initURL) {
-//
-//     $.ajax(
-//         {
-//             url: `${initURL}`,
-//             type: "GET",
-//             dataType: "json"
-//         }
-//     ).done(function (response) {
-//         console.log('initializing chat...')
-//         response.forEach(function (item) {
-//             section.append(`<p>${item.author}: ${item.message} (${item.time})</p>`)
-//
-//             if (section.children().length > 15) {
-//
-//                 let toRemove = section.children().length - 15
-//
-//                 for (let i = 0; i < toRemove; i++) {
-//                     section.children().eq(i).remove()
-//                 }
-//             }
-//         })
-//
-//     });
-// }
 
 function addMessage(input, serverURL) {
     console.log('trying to send message...')
@@ -87,7 +59,6 @@ function addMessage(input, serverURL) {
 }
 
 function checkChat(section, serverURL) {
-    //console.log('trying to check messages...')
 
     $.ajax(
         {
@@ -96,7 +67,6 @@ function checkChat(section, serverURL) {
             dataType: "json"
         }
     ).done(function (response) {
-        //console.log('checking messages...')
         response.forEach(function(item){
 
             let lastIndex = section.children().length - 1
@@ -111,32 +81,22 @@ function checkChat(section, serverURL) {
 
             }
 
-
-            // if (section.children().length > 15) {
-            //
-            //     let toRemove = section.children().length - 15
-            //
-            //     for (let i = 0; i < toRemove; i++) {
-            //         section.children().eq(i).remove()
-            //     }
-            // }
-
         })
 
     })
 
 }
 
-// function closeSession(closeURL) {
-//
-//     $.ajax(
-//         {
-//             url: `${closeURL}`,
-//             type: "GET",
-//             dataType: "json"
-//         }
-//     ).done(function () {
-//         console.log('closing session...')
-//     });
-// }
+function closeSession(closeURL) {
+
+    $.ajax(
+        {
+            url: `${closeURL}`,
+            type: "GET",
+            dataType: "json"
+        }
+    ).done(function () {
+        console.log('closing session...')
+    });
+}
 

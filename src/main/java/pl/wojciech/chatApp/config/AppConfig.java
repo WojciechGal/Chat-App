@@ -1,4 +1,4 @@
-package pl.wojciech.config;
+package pl.wojciech.chatApp.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -9,12 +9,12 @@ import org.springframework.web.servlet.config.annotation.DefaultServletHandlerCo
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
-import pl.wojciech.chat.ChatRepository;
-import pl.wojciech.chat.ChatService;
+import pl.wojciech.chatApp.chat.ChatRepository;
+import pl.wojciech.chatApp.chat.ChatService;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "pl.wojciech")
+@ComponentScan(basePackages = "pl.wojciech.chatApp")
 public class AppConfig implements WebMvcConfigurer {
 
     @Bean

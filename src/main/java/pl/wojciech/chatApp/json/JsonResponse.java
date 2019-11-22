@@ -1,4 +1,4 @@
-package pl.wojciech.json;
+package pl.wojciech.chatApp.json;
 
 public class JsonResponse {
     private int status;

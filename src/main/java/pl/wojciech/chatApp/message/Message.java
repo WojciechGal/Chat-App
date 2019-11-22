@@ -1,4 +1,4 @@
-package pl.wojciech.message;
+package pl.wojciech.chatApp.message;
 
 
 public class Message {

@@ -1,10 +1,10 @@
-package pl.wojciech.app;
+package pl.wojciech.chatApp.app;
 
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.DispatcherServlet;
-import pl.wojciech.config.AppConfig;
+import pl.wojciech.chatApp.config.AppConfig;
 
 import javax.servlet.*;
 

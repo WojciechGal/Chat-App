@@ -1,4 +1,4 @@
-package pl.wojciech.chat;
+package pl.wojciech.chatApp.chat;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.WebApplicationContext;
-import pl.wojciech.exceptions.ChatServiceException;
-import pl.wojciech.json.JsonResponse;
-import pl.wojciech.message.Message;
+import pl.wojciech.chatApp.exceptions.ChatServiceException;
+import pl.wojciech.chatApp.json.JsonResponse;
+import pl.wojciech.chatApp.message.Message;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;

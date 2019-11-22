@@ -1,7 +1,7 @@
-package pl.wojciech.chat;
+package pl.wojciech.chatApp.chat;
 
 import org.springframework.stereotype.Repository;
-import pl.wojciech.message.Message;
+import pl.wojciech.chatApp.message.Message;
 
 import java.util.ArrayList;
 import java.util.List;

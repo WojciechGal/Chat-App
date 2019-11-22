@@ -1,4 +1,4 @@
-package pl.wojciech.exceptions;
+package pl.wojciech.chatApp.exceptions;
 
 public class ChatServiceException extends RuntimeException {
 

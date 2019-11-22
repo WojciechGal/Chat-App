@@ -1,10 +1,10 @@
-package pl.wojciech.chat;
+package pl.wojciech.chatApp.chat;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.WebApplicationContext;
-import pl.wojciech.message.Message;
+import pl.wojciech.chatApp.message.Message;
 
 import java.time.LocalTime;
 import java.util.List;
